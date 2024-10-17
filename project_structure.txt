@@ -1,0 +1,12 @@
+deploy_static_app/
+├── files
+│   └── static_site
+│       ├── css
+│       │   └── style.css
+│       ├── index.html
+│       └── js
+│           └── script.js
+├── inventory.ini
+└── playbook.yml
+
+5 directories, 5 files
