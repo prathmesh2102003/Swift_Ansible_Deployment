@@ -1,0 +1,24 @@
+---
+- hosts: webservers
+  become: yes  # Use sudo to perform tasks that require elevated privileges
+  tasks:
+
+    - name: Install NGINX
+      apt:
+        name: nginx
+        state: present
+        update_cache: yes
+
+    - name: Copy static site files to the server
+      copy:
+        src: files/static_site/
+        dest: /var/www/html/
+        owner: www-data
+        group: www-data
+        mode: '0755'
+
+    - name: Ensure NGINX is running
+      service:
+        name: nginx
+        state: started
+        enabled: yes
